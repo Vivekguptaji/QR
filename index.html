@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>QC Code App</title>
+      <script type="text/javascript" src="./src/lib/qrcode.min.js" defer></script>
+      <script src="./src/admin/app.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdn.staticaly.com/gh/mauntrelio/qrcode-reader/master/dist/js/qrcode-reader.min.js?env=dev"></script>
+      <link rel="stylesheet" href="./src/css/app.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdn.staticaly.com/gh/mauntrelio/qrcode-reader/master/dist/css/qrcode-reader.min.css?env=dev"
+         />
+      <link
+         rel="stylesheet"
+         href="https://fonts.googleapis.com/css?family=Lato"
+         /> 
+         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"></link> 
+            
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.3/jspdf.plugin.autotable.js"></script>
+        
+    </head>
+   <body>
+      <div id="non-printable">
+      <header>Generate the QR Code</header>
+      <div id="qrcodeholder"></div>
+      <div>
+         <div><form class="form-control">
+            <input
+               type="text"
+               title="Enter Employee Name"
+               name="empName"
+               placeholder="Please enter Employee Name"
+               />
+            <input
+               type="number"
+               title="Enter Employee Phone"
+               name="empPhone"
+               placeholder="Please enter Employee Phone"
+               /> 
+            <input
+               type="text"
+               title="Enter Employee Address"
+               name="empAddress"
+               placeholder="Please enter Employee Address"
+               />
+            </div>
+            <div class="container">
+               <div class="vertical-center">
+                  <button class="btn" id="qrGenerateBtn">Generate QR Code</button>
+                  <button class="qrcode-reader btn" type="button"  id="openreader-multi" data-qrr-multiple="true"
+                  data-qrr-repeat-timeout="0" data-qrr-line-color="#00FF00"  data-qrr-target="#multiple">
+               Read QR Code
+               </button> 
+               
+               </div> 
+         </form></div> 
+         
+          <div>
+            <form class="form-control"> 
+               <textarea
+                  id="multiple" 
+                  rows="8"
+                  placeholder="It will populate the Scan QR Result"
+                  ></textarea>
+               <br />
+            </form>
+          </div>
+         
+         </div>
+         <div class="container">
+            <button id="pdf" class="btn btn-lg btn-danger clearfix"><span class="fa fa-file-pdf-o"></span>Print Table</button>
+         </div>
+      </div>  
+         <div id="printable">
+         <table id="exportTable" class="table">
+            <thead>
+                <tr>
+                    <th>Details</th>
+                    <th>QR</th> 
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+        <div id="noRow" class="form-control">No Row(s) added on table</div>
+       </div> 
+     </div> 
+   </body>
+</html>
